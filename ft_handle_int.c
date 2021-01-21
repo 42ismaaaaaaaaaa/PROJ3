@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 16:33:17 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/18 16:02:13 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/21 12:57:33 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		ft_handle_int(long long nb, char *flags)
 	if (decision == -2 || decision == 0)
 		ft_putnbr(nb, get_precision(flags));
 	else if (decision == -1)
-		len += ft_handle_flags_int(flags, len, 1, 0);
+		len += ft_handle_flags_int(flags, len, 1, nb);
 	else
 		len += decision;
 	// printf("\n|handle_int len: %d|\n", len);

@@ -29,9 +29,9 @@ int main(void)
 
 	// res1 = ft_printf("\n|%.5s%7s|\n", "yo", "boi");
 	// res2 = printf("\n|%.5s%7s|\n", "yo", "boi");
-	res1 = ft_printf("\n||%-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d||\n", 3, 2, i, 3, 2, j, 3, 2, k, 3, 2, l, 3, 2, m, 3, 2, c, 3, 2, e, 3, 2, d);
-	res2 = printf("\n||%-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d||\n", 3, 2, i, 3, 2, j, 3, 2, k, 3, 2, l, 3, 2, m, 3, 2, c, 3, 2, e, 3, 2, d);
-	// printf("\n||%-*.*d||\n", 3, 2, 'a');
-	// ft_printf("\n||%-*.*d||\n", 3, 2, 'a');
+	res1 = ft_printf("\n||%.*u, %.*x, %.*X, %.*u, %.*x, %.*X, %.*u, %.*x, %.*X, %.*u, %.*x, %.*X, %.*u, %.*x, %.*X, %.*u, %.*x, %.*X, %.*u, %.*x, %.*X, %.*u, %.*x, %.*X||\n", a, i, a, i, a, i, a, j, a, j, a, j, a, k, a, k, a, k, a, l, a, l, a, l, a, m, a, m, a, m, a, c, a, c, a, c, a, d, a, d, a, d, a, e, a, e, a, e);
+	res2 = printf("\n||%.*u, %.*x, %.*X, %.*u, %.*x, %.*X, %.*u, %.*x, %.*X, %.*u, %.*x, %.*X, %.*u, %.*x, %.*X, %.*u, %.*x, %.*X, %.*u, %.*x, %.*X, %.*u, %.*x, %.*X||\n",a, i, a, i, a, i, a, j, a, j, a, j, a, k, a, k, a, k, a, l, a, l, a, l, a, m, a, m, a, m, a, c, a, c, a, c, a, d, a, d, a, d, a, e, a, e, a, e);
+	// res1 = ft_printf("\n||%*.*x||\n", -4, 0, 0);
+	// res2 = printf("\n||%*.*x||\n", -4, 0, 0);
 	printf("\nMine: %d / L'autre: %d\n", res1, res2);
 }

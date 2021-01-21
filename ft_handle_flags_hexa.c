@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 17:31:42 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/14 17:35:21 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/21 12:48:22 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ int		ft_handle_flags_hexa(char *flags, int *tab, int after, long long nb)
 	int	print_after;
 	int	size;
 
+	// printf("\n nb hexa: %lld\n", nb);
 	size = 0;
 	precision = get_precision(flags);
 	width = get_width(flags);
 	zeros = get_zeros(flags, precision);
 	print_after = get_print_after(flags, zeros, 0, width, precision);
-	if (width <= tab[0] && precision <= tab[0] && precision != 0)
+	// printf("\nwidth: %d / precisionß: %d / zeros: %d / print_after: %d, after: %d / len: %d / nb: %lld\n", width, precision, zeros, print_after, after, tab[0], nb);
+	if (width <= tab[0] && precision <= tab[0] && !(precision == 0 && nb == 0))
 		return (-2);
 	if (precision == -1 && zeros > 0)
 		return (print_zeros_hexa(width, precision, tab, nb, zeros));
@@ -46,7 +48,7 @@ int		ft_handle_flags_hexa(char *flags, int *tab, int after, long long nb)
 	return (size);
 }
 
-int		print_spaces_hexa(int width, int precision, int len, int nb)
+int		print_spaces_hexa(int width, int precision, int len, long long nb)
 {
 	int i;
 	int max;
@@ -98,6 +100,7 @@ int		print_zeros_hexa(int width, int precision, int *tab, long long nb, int zero
 		write(1, "0", 1);
 		i++;
 	}
+	// printf("HEEEEEYYYY");
 	if (!(nb == 0 && precision == 0))
 		write_to_hexa(nb, tab[1]);
 	return (i);

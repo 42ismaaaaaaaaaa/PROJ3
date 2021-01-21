@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 14:51:24 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/18 16:01:57 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/21 12:39:50 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ int		ft_handle_flags_int(char *flags, int len, int after, long long nb)
 	width = get_width(flags);
 	zeros = get_zeros(flags, precision);
 	print_after = get_print_after(flags, zeros, len, width, precision);
-	// printf("\nwidth: %d / precisionß: %d / zeros: %d / print_after: %d, after: %d / len: %d\n", width, precision, zeros, print_after, after, len);
+	// printf("\nwidth: %d / precisionß: %d / zeros: %d / print_after: %d, after: %d / len: %d / nb: %lld\n", width, precision, zeros, print_after, after, len, nb);
 	if (precision > 0 && nb < 0)
 		precision++;
 	if (width <= len && precision <= len)
 		return (-2);
 	if (precision == -1 && zeros > 0)
-		return (print_zeros(width, precision, len, nb, zeros));
+			return (print_zeros(width, precision, len, nb, zeros));
 	if (after == 1)
 		return (print_spaces(width, precision, len, nb));
 	if (width > len || precision > len)
@@ -66,6 +66,8 @@ int		print_spaces(int width, int precision, int len, int nb)
 		max = width - precision - negative;
 	else if (width > len && precision <= len)
 		max = width - len;
+	// printf("\nwidth: %d / len: %d / nb: %d\n", width, len, nb);
+	// printf("\nmax for spaces: %d\n", max);
 	while (i < max)
 	{
 		write(1, " ", 1);

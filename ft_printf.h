@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:16:41 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/14 17:35:50 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/21 12:17:04 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int		print_spaces_str(int width, int len);
 int		print_str_len(char *str, int max);
 int		ft_handle_flags_char(char *flags, int after);
 int		print_zeros_hexa(int width, int precision, int *tab, long long nb, int zeros);
-int		print_spaces_hexa(int width, int precision, int len, int nb);
+int		print_spaces_hexa(int width, int precision, int len, long long nb);
 int		ft_handle_flags_hexa(char *flags, int *tab, int after, long long nb);
 int		ft_handle_pointers(void *nb, char *flags);
 int		size_of_hex(long long nb);

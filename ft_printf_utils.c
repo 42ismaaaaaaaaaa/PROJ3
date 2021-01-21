@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 15:26:12 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/14 13:33:48 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/21 12:45:45 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	write_to_hexa(long long c, char op)
 	char		to_write;
 	long long	mod;
 
+	// printf("\n nb hex in wirte to hexa: %lld\n", c);
 	if (c < 0)
 	{
 		write(1, "-", 1);

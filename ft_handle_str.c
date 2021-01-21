@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 15:22:25 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/14 17:35:44 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/21 12:04:27 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ int		ft_handle_str(char *str, char *flags)
 	print_str_len(str, len);
 	if (decision == -2)
 		len += ft_handle_flags_str(flags, len, 1);
+	else
+		len += decision;
+	
 	return (len);
 }
 
