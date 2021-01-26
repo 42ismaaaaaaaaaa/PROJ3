@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 16:59:01 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/14 17:42:06 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/26 16:00:40 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,12 @@ int	get_width(char *flags)
 	int result;
 
 	i = 0;
-	if (flags[i] == '-' || flags[i] == '0')
+	while (flags[i] == '-' || flags[i] == '0')
 		i++;
-	if (flags[i] == '-')
-		i++;
+	// if (flags[i] == '-' || flags[i] == '0')
+	// 	i++;
+	// if (flags[i] == '-')
+	// 	i++;
 	if (ft_isdigit(flags[i]))
 		result = ft_atoi(&flags[i]);
 	else

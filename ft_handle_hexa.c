@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 16:49:42 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/21 13:01:22 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/26 14:58:00 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		ft_handle_hexa(long long nb, char *flags, char op)
 		n /= 16;
 		len++;
 	}
-	if (nb == 0)
+	if (nb <= 0 && !(get_precision(flags) == 0 && nb == 0))
 		len++;
 	tab[0] = len;
 	// printf("\n nb hexa: %lld\n", nb);

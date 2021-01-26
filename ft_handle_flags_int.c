@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 14:51:24 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/21 12:39:50 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/26 16:00:55 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		ft_handle_flags_int(char *flags, int len, int after, long long nb)
 	return (size);
 }
 
-int		print_spaces(int width, int precision, int len, int nb)
+int		print_spaces(int width, int precision, int len, long long nb)
 {
 	int i;
 	int max;
@@ -76,7 +76,7 @@ int		print_spaces(int width, int precision, int len, int nb)
 	return (i);
 }
 
-int		print_zeros(int width, int precision, int len, int nb, int zeros)
+int		print_zeros(int width, int precision, int len, long long nb, int zeros)
 {
 	int i;
 	int max;

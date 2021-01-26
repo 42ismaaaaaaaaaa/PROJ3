@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:16:41 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/21 12:17:04 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/26 16:59:17 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int		is_op(char c);
 char	get_op(char *str);
 char	*parse_flags(char *str, va_list params);
 int		ft_handle_flags_int(char *flags, int len, int after, long long nb);
-int		print_spaces(int width, int precision, int len, int nb);
-int		print_zeros(int width, int precision, int len, int nb, int zeros);
+int		print_spaces(int width, int precision, int len, long long nb);
+int		print_zeros(int width, int precision, int len, long long nb, int zeros);
 int		get_precision(char *flags);
 int		get_width(char *flags);
 int		get_zeros(char *flags, int precision);
@@ -51,5 +51,6 @@ int		size_of_hex(long long nb);
 int		ft_handle_percent(char *flags);
 int		print_spaces_percent(int width);
 int		print_zeros_percent(int width);
+int		ft_check_if_zeros(char *flags, int len, long long nb);
 
 #endif
