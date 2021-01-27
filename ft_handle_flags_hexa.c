@@ -6,11 +6,40 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 17:31:42 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/22 13:22:57 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/27 16:55:32 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int		ft_handle_flags_hexa_extension(char *flags, int *tab, int after,
+									long long nb)
+{
+	int	precision;
+	int	width;
+	int zeros;
+	int	print_after;
+	int	size;
+
+	size = 0;
+	precision = get_precision(flags);
+	width = get_width(flags);
+	zeros = get_zeros(flags, precision);
+	print_after = get_print_after(flags, zeros, 0, width, precision);
+	if (width > tab[0] || precision > tab[0])
+	{
+		if (print_after == 0)
+		{
+			size += print_spaces_hexa(width, precision, tab[0], nb);
+			if (tab[1] == 'p')
+				ft_putstr("0x");
+		}
+		size += print_zeros_hexa(flags, tab, nb, zeros);
+	}
+	if (print_after == 1 && after == 0)
+		return (-1);
+	return (size);
+}
 
 int		ft_handle_flags_hexa(char *flags, int *tab, int after, long long nb)
 {
@@ -20,32 +49,18 @@ int		ft_handle_flags_hexa(char *flags, int *tab, int after, long long nb)
 	int	print_after;
 	int	size;
 
-	// printf("\n nb hexa: %lld\n", nb);
 	size = 0;
 	precision = get_precision(flags);
 	width = get_width(flags);
 	zeros = get_zeros(flags, precision);
 	print_after = get_print_after(flags, zeros, 0, width, precision);
-	// printf("\nwidth: %d / precisionß: %d / zeros: %d / print_after: %d, after: %d / len: %d / nb: %lld\n", width, precision, zeros, print_after, after, tab[0], nb);
 	if (width <= tab[0] && precision <= tab[0] && !(precision == 0 && nb == 0))
 		return (-2);
 	if (precision == -1 && zeros > 0)
-		return (print_zeros_hexa(width, precision, tab, nb, zeros));
+		return (print_zeros_hexa(flags, tab, nb, zeros));
 	if (after == 1)
 		return (print_spaces_hexa(width, precision, tab[0], nb));
-	if (width > tab[0] || precision > tab[0])
-	{
-		if (print_after == 0)
-		{
-			size += print_spaces_hexa(width, precision, tab[0], nb);
-			if (tab[1] == 'p')
-				ft_putstr("0x");
-		}
-		size += print_zeros_hexa(width, precision, tab, nb, zeros);
-	}
-	if (print_after == 1 && after == 0)
-		return (-1);
-	return (size);
+	return (ft_handle_flags_hexa_extension(flags, tab, after, nb));
 }
 
 int		print_spaces_hexa(int width, int precision, int len, long long nb)
@@ -75,33 +90,36 @@ int		print_spaces_hexa(int width, int precision, int len, long long nb)
 	return (i);
 }
 
-int		print_zeros_hexa(int width, int precision, int *tab, long long nb, int zeros)
+int		print_zeros_hexa(char *flags, int *tab, long long nb, int zeros)
 {
-	int i;
 	int max;
-	int len;
+	int width;
+	int precision;
+	int i;
 
-	len = tab[0];
-	i = 0;
+	width = get_width(flags);
+	precision = get_precision(flags);
 	max = 0;
 	if (nb < 0)
 	{
 		write(1, "-", 1);
 		nb = -nb;
 		if (zeros == 0)
-			len--;
+			tab[0]--;
 	}
 	if (zeros == 1)
-		max = width - len;
-	if (precision > len)
-		max = precision - len;
-	while (i < max)
-	{
+		max = width - tab[0];
+	if (precision > tab[0])
+		max = precision - tab[0];
+	i = max;
+	while (max-- > 0)
 		write(1, "0", 1);
-		i++;
-	}
-	// printf("HEEEEEYYYY");
-	if (!(nb == 0 && precision == 0))
-		write_to_hexa(nb, tab[1]);
+	print_zeros_hexa_extension(nb, precision, tab[1]);
 	return (i);
+}
+
+void	print_zeros_hexa_extension(long long nb, int precision, char op)
+{
+	if (!(nb == 0 && precision == 0))
+		write_to_hexa(nb, op);
 }

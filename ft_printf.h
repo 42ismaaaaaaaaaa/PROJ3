@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:16:41 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/26 16:59:17 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/27 16:53:15 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		ft_handle_flags_str(char *flags, int len, int after);
 int		print_spaces_str(int width, int len);
 int		print_str_len(char *str, int max);
 int		ft_handle_flags_char(char *flags, int after);
-int		print_zeros_hexa(int width, int precision, int *tab, long long nb, int zeros);
+int		print_zeros_hexa(char *flags, int *tab, long long nb, int zeros);
 int		print_spaces_hexa(int width, int precision, int len, long long nb);
 int		ft_handle_flags_hexa(char *flags, int *tab, int after, long long nb);
 int		ft_handle_pointers(void *nb, char *flags);
@@ -52,5 +52,7 @@ int		ft_handle_percent(char *flags);
 int		print_spaces_percent(int width);
 int		print_zeros_percent(int width);
 int		ft_check_if_zeros(char *flags, int len, long long nb);
+int		ft_handle_flags_hexa_extension(char *flags, int *tab, int after, long long nb);
+void	print_zeros_hexa_extension(long long nb, int precision, char op);
 
 #endif

@@ -28,11 +28,12 @@ int main(void)
 	char	*s = "-2147483648";
 	char	*t = "0x12340678";
 	char	*u = "-0";
+	char	*str = "\n%.5s%7s\n";
 
 	// res1 = ft_printf("\n|%.0s%7s|\n", "yo", "boi");
 	// res2 = printf("\n|%.0s%7s|\n", "yo", "boi");
-	res1 = ft_printf("\n||%.5s%7s||\n", "yo", "boi");
-	res2 = printf("\n||%.5s%7s||\n", "yo", "boi");
+	res1 = ft_printf(str, "yo", "boi");
+	res2 = printf(str, "yo", "boi");
 	// res3 = ft_printf("\n||%1i, %1d, %1d, %1d, %1d, %1d, %1d, %1d||\n", i, j, k, l, m, c, e, d);
 	// res4 = printf("\n||%1i, %1d, %1d, %1d, %1d, %1d, %1d, %1d||\n", i, j, k, l, m, c, e, d);
 
