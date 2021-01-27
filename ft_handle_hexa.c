@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 16:49:42 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/26 14:58:00 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/27 14:37:45 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,11 @@ int		ft_handle_hexa(long long nb, char *flags, char op)
 	if (decision == -2)
 		write_to_hexa(nb, tab[1]);
 	else if (decision == -1)
+	{
+		decision = ft_check_if_zeros(flags, len, nb);
 		len += ft_handle_flags_hexa(flags, tab, 1, nb);
+		len += decision;
+	}
 	else
 		len += decision;
 	// printf("\nlen: %d / nb: %lld\n", len, nb);

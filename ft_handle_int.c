@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 16:33:17 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/26 17:10:31 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/27 14:38:27 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,9 @@ int		ft_handle_int(long long nb, char *flags)
 		ft_putnbr(nb, get_precision(flags));
 	else if (decision == -1)
 	{
-		// len += ft_check_if_zeros(flags, len, nb);
+		decision = ft_check_if_zeros(flags, len, nb);
 		len += ft_handle_flags_int(flags, len, 1, nb);
+		len += decision;
 	}
 	else
 		len += decision;
@@ -56,14 +57,15 @@ int		ft_check_if_zeros(char *flags, int len, long long nb)
 
 	size = 0;
 	max = 0;
-	nb = 0;
 	precision = get_precision(flags);
-	// if (nb < 0)
-	// 	precision++;
+	if (nb < 0)
+		precision++;
 	width = get_width(flags);
 	zeros = get_zeros(flags, precision);
+	if (zeros)
+		return (0);
 	max = precision - len;
-	// printf("\nprecision: %d / width: %d / zeros: %d / len: %d\n", precision, width, zeros, len);
+	// printf("\nnb: %lld / precision: %d / width: %d / zeros: %d / len: %d\n", nb, precision, width, zeros, len);
 	while (size < max)
 		size++;
 	// printf(" size: %d\n", size);

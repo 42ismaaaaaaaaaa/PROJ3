@@ -4,9 +4,11 @@ int main(void)
 {
 	int res1;
 	int res2;
+	int res3;
+	int res4;
 
-	int		a = 12;
-	int		b = 25;
+	int		a = 3;
+	int		b = 2;
 	char	c = 'a';
 	int		d = 2147483647;
 	int		e = -2147483648;
@@ -29,9 +31,12 @@ int main(void)
 
 	// res1 = ft_printf("\n|%.0s%7s|\n", "yo", "boi");
 	// res2 = printf("\n|%.0s%7s|\n", "yo", "boi");
-	res1 = ft_printf("\n||%-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d||\n", 4, 3, i, 4, 3, j, 4, 3, k, 4, 3, l, 4, 3, m, 4, 3, c, 4, 3, e, 4, 3, d);
-	res2 = printf("\n||%-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d||\n", 4, 3, i, 4, 3, j, 4, 3, k, 4, 3, l, 4, 3, m, 4, 3, c, 4, 3, e, 4, 3, d);
-	// res1 = ft_printf("\n||%-*.*i||\n", 4, 2, i);
-	// res2 = printf("\n||%-*.*i||\n", 4, 2, i);
+	res1 = ft_printf("\n||%.5s%7s||\n", "yo", "boi");
+	res2 = printf("\n||%.5s%7s||\n", "yo", "boi");
+	// res3 = ft_printf("\n||%1i, %1d, %1d, %1d, %1d, %1d, %1d, %1d||\n", i, j, k, l, m, c, e, d);
+	// res4 = printf("\n||%1i, %1d, %1d, %1d, %1d, %1d, %1d, %1d||\n", i, j, k, l, m, c, e, d);
+
+	// res1 = ft_printf("\n||%-*.*d||\n", 4, 3, j);
+	// res2 = printf("\n||%-*.*d||\n", 4, 3 , j);
 	printf("\nMine: %d / L'autre: %d\n", res1, res2);
 }
