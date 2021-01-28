@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 15:22:25 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/21 12:04:27 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/28 14:00:37 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int		ft_handle_str(char *str, char *flags)
 		len += ft_handle_flags_str(flags, len, 1);
 	else
 		len += decision;
-	
 	return (len);
 }
 
@@ -93,17 +92,4 @@ int		print_spaces_str(int width, int len)
 		i++;
 	}
 	return (max);
-}
-
-int		print_str_len(char *str, int max)
-{
-	int i;
-
-	i = 0;
-	while (i < max && str[i])
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
-	return (i);
 }

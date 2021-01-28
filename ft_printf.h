@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:16:41 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/27 16:53:15 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/28 13:56:13 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ int		print_zeros_percent(int width);
 int		ft_check_if_zeros(char *flags, int len, long long nb);
 int		ft_handle_flags_hexa_extension(char *flags, int *tab, int after, long long nb);
 void	print_zeros_hexa_extension(long long nb, int precision, char op);
+int		ft_handle_hexa_extension(long long nb, char *flags, int len, int *tab);
 
 #endif

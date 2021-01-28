@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 16:49:42 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/27 14:37:45 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/28 13:57:15 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,12 @@
 int		ft_handle_hexa(long long nb, char *flags, char op)
 {
 	int			len;
-	int			decision;
 	long long	n;
 	int			tab[2];
 
 	len = 0;
 	n = nb;
 	tab[1] = op;
-	// if (n < 0)
-	// 	n = -n;
 	if (op == 'p')
 		len += 2;
 	while (n > 0)
@@ -34,7 +31,13 @@ int		ft_handle_hexa(long long nb, char *flags, char op)
 	if (nb <= 0 && !(get_precision(flags) == 0 && nb == 0))
 		len++;
 	tab[0] = len;
-	// printf("\n nb hexa: %lld\n", nb);
+	return (ft_handle_hexa_extension(nb, flags, len, tab));
+}
+
+int		ft_handle_hexa_extension(long long nb, char *flags, int len, int *tab)
+{
+	int decision;
+
 	decision = ft_handle_flags_hexa(flags, tab, 0, nb);
 	if (decision == -2)
 		write_to_hexa(nb, tab[1]);
@@ -46,6 +49,5 @@ int		ft_handle_hexa(long long nb, char *flags, char op)
 	}
 	else
 		len += decision;
-	// printf("\nlen: %d / nb: %lld\n", len, nb);
 	return (len);
 }
