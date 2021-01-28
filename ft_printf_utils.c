@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 15:26:12 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/28 14:14:49 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/28 14:24:31 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,30 @@ void	write_to_hexa(long long c, char op)
 	else
 		to_write = hexa[mod];
 	write(1, &to_write, 1);
+}
+
+int		ft_printf_extension(int len, const char *str, va_list params)
+{
+	int	printed;
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		printed = 0;
+		if (str[i] != '%')
+		{
+			write(1, &str[i], 1);
+			len++;
+		}
+		else
+		{
+			printed = ft_handle_all((char *)&str[++i], params);
+			while (!is_op(str[i]))
+				i++;
+		}
+		len += printed;
+		i++;
+	}
+	return (len);
 }

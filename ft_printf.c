@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:03:12 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/28 14:17:46 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/28 14:24:38 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,30 +96,11 @@ int		ft_handle_all(char *str, va_list params)
 int		ft_printf(const char *str, ...)
 {
 	va_list params;
-	int		i;
 	int		len;
-	int		printed;
 
 	va_start(params, str);
-	i = 0;
 	len = 0;
-	while (str[i])
-	{
-		printed = 0;
-		if (str[i] != '%')
-		{
-			write(1, &str[i], 1);
-			len++;
-		}
-		else
-		{
-			printed = ft_handle_all((char *)&str[++i], params);
-			while (!is_op(str[i]))
-				i++;
-		}
-		len += printed;
-		i++;
-	}
+	len += ft_printf_extension(len, str, params);
 	va_end(params);
 	return (len);
 }
