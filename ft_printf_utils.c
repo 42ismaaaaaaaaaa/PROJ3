@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 15:26:12 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/21 12:45:45 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/28 14:14:49 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ void	ft_putnbr(long long n, int precision)
 	long long	mod;
 	char		to_write;
 
-	// if (n == -2147483648)
-	// 	write(1, "-2147483648", 11);
 	if (n == 0 && precision == 0)
 		return ;
 	if (n < 0)
@@ -41,11 +39,10 @@ void	ft_putnbr(long long n, int precision)
 
 void	write_to_hexa(long long c, char op)
 {
-	char		hexa[17] = "0123456789abcdef";
-	char		to_write;
-	long long	mod;
+	static char		hexa[17] = "0123456789abcdef";
+	char			to_write;
+	long long		mod;
 
-	// printf("\n nb hex in wirte to hexa: %lld\n", c);
 	if (c < 0)
 	{
 		write(1, "-", 1);
