@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 15:46:44 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/28 13:57:49 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/28 14:07:32 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_handle_percent(char *flags)
 
 	zeros = get_zeros(flags, -1);
 	width = get_width(flags);
-	print_after = get_print_after(flags, zeros, 0, width, 0);
+	print_after = get_print_after(flags, zeros, 0, 0);
 	len = 1;
 	if (zeros == 1 && print_after == 0)
 		len += print_zeros_percent(width);

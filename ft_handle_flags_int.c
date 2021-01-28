@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 14:51:24 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/27 14:21:18 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/28 14:07:25 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		ft_handle_flags_int(char *flags, int len, int after, long long nb)
 	// printf("\nprecision: %d\n", precision);
 	width = get_width(flags);
 	zeros = get_zeros(flags, precision);
-	print_after = get_print_after(flags, zeros, len, width, precision);
+	print_after = get_print_after(flags, zeros, len, precision);
 	// printf("\nwidth: %d / precisionß: %d / zeros: %d / print_after: %d, after: %d / len: %d / nb: %lld\n", width, precision, zeros, print_after, after, len, nb);
 	if (precision > 0 && nb < 0)
 		precision++;

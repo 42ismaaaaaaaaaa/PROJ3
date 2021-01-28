@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 16:59:01 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/26 16:00:40 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/28 14:07:00 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ int	get_precision(char *flags)
 	while (flags[i])
 	{
 		if (flags[i] == '.')
-		{	
+		{
 			result = ft_atoi(&flags[++i]);
 			if (result < 0)
 				return (-1);
-		}	
+		}
 		i++;
 	}
 	return (result);
@@ -40,10 +40,6 @@ int	get_width(char *flags)
 	i = 0;
 	while (flags[i] == '-' || flags[i] == '0')
 		i++;
-	// if (flags[i] == '-' || flags[i] == '0')
-	// 	i++;
-	// if (flags[i] == '-')
-	// 	i++;
 	if (ft_isdigit(flags[i]))
 		result = ft_atoi(&flags[i]);
 	else
@@ -62,8 +58,11 @@ int	get_zeros(char *flags, int precision)
 	return (0);
 }
 
-int	get_print_after(char *flags, int zeros, int len, int width, int precision)
+int	get_print_after(char *flags, int zeros, int len, int precision)
 {
+	int width;
+
+	width = get_width(flags);
 	if (width <= len || width <= precision)
 		return (0);
 	if (flags[0] == '-')

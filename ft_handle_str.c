@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 15:22:25 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/28 14:00:37 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/28 14:07:46 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int		ft_handle_flags_char(char *flags, int after)
 	int print_after;
 
 	width = get_width(flags);
-	print_after = get_print_after(flags, 0, 0, width, 0);
+	print_after = get_print_after(flags, 0, 0, 0);
 	if (print_after == 1 && after == 0)
 		return (-2);
 	if (width > 1)
@@ -71,7 +71,7 @@ int		ft_handle_flags_str(char *flags, int len, int after)
 
 	precision = get_precision(flags);
 	width = get_width(flags);
-	print_after = get_print_after(flags, 0, len, width, 0);
+	print_after = get_print_after(flags, 0, len, 0);
 	if (print_after == 1 && after == 0)
 		return (-2);
 	if (width > len)

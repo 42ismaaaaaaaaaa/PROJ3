@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:16:41 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/28 13:56:13 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/28 14:07:53 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		print_zeros(int width, int precision, int len, long long nb, int zeros);
 int		get_precision(char *flags);
 int		get_width(char *flags);
 int		get_zeros(char *flags, int precision);
-int		get_print_after(char *flags, int zeros, int len, int width, int precision);
+int		get_print_after(char *flags, int zeros, int len, int precision);
 char	*replace_with_star(char *orig, int n, int len);
 int		ft_handle_flags_str(char *flags, int len, int after);
 int		print_spaces_str(int width, int len);
