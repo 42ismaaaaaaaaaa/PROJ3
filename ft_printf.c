@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:03:12 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/14 17:05:32 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/28 14:17:46 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		is_op(char c)
 {
-	char	op[9] = "diuscxXp\%";
-	int		i;
+	static char	op[9] = "diuscxXp\%";
+	int			i;
 
 	i = 0;
 	while (op[i])
@@ -58,19 +58,11 @@ char	*parse_flags(char *str, va_list params)
 		{
 			result = replace_with_star(result, va_arg(params, int), len);
 			j = ft_strlen(result);
-			// printf("\nj dans la boucle: %d\n", j);
 			i++;
 		}
-		else		
-		{
-			result[j] = str[i];
-			i++;
-			j++;
-		}
+		else
+			result[j++] = str[i++];
 	}
-	// printf("\nj: %d\n", j);
-	// result[j] = '\0';
-	// printf("\nflags: %s\n", result);
 	return (result);
 }
 
@@ -82,7 +74,6 @@ int		ft_handle_all(char *str, va_list params)
 
 	flags = parse_flags(str, params);
 	op = get_op(str);
-	// printf("\nop: %c\n", op);
 	len = 0;
 	if (op == 'd' || op == 'i')
 		len += ft_handle_int(va_arg(params, int), flags);
@@ -99,7 +90,6 @@ int		ft_handle_all(char *str, va_list params)
 	if (op == '%')
 		len += ft_handle_percent(flags);
 	free(flags);
-	// printf("\nhandle_all len: %d\n", len);
 	return (len);
 }
 
@@ -123,7 +113,7 @@ int		ft_printf(const char *str, ...)
 		}
 		else
 		{
-			printed = ft_handle_all((char *) &str[++i], params);
+			printed = ft_handle_all((char *)&str[++i], params);
 			while (!is_op(str[i]))
 				i++;
 		}
