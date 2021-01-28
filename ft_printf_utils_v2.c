@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 14:40:41 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/28 14:56:09 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/28 14:59:29 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,12 @@ char	*replace_with_star(char *orig, int n, int len)
 	if (!(result = malloc(sizeof(char) * (ft_strlen(star) + len + 1))))
 		return (NULL);
 	ft_bzero(result, ft_strlen(star) + len);
-	i = 0;
-	while (orig[i])
-	{
+	i = -1;
+	while (orig[++i])
 		result[i] = orig[i];
-		i++;
-	}
-	j = 0;
-	while (star[j])
-	{
-		result[i] = star[j];
-		i++;
-		j++;
-	}
+	j = -1;
+	while (star[++j])
+		result[i++] = star[j];
 	while (i <= ft_strlen(star) + len)
 	{
 		result[i] = '\0';
