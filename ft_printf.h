@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:16:41 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/28 14:38:23 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/28 14:55:16 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	get_op(char *str);
 char	*parse_flags(char *str, va_list params);
 int		ft_handle_flags_int(char *flags, int len, int after, long long nb);
 int		print_spaces(int width, int precision, int len, long long nb);
-int		print_zeros(int width, int precision, int len, long long nb, int zeros);
+int		print_zeros(int len, long long nb, int precision, char *flags);
 int		get_precision(char *flags);
 int		get_width(char *flags);
 int		get_zeros(char *flags, int precision);
@@ -58,5 +58,7 @@ void	print_zeros_hexa_extension(long long nb, int precision, char op);
 int		ft_handle_hexa_extension(long long nb, char *flags, int len, int *tab);
 int		ft_printf_extension(int len, const char *str, va_list params);
 int		check_nb_len(long long nb);
+int		ft_handle_flags_int_ext(char *flags, int len, int after, long long nb);
+void	print_zeros_int_ext(long long nb, int precision);
 
 #endif
