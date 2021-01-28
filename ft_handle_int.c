@@ -6,11 +6,26 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 16:33:17 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/27 14:38:27 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/28 14:39:08 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int		check_nb_len(long long nb)
+{
+	int len;
+
+	len = 0;
+	if (nb < 0)
+		nb = -nb;
+	while (nb > 0)
+	{
+		nb /= 10;
+		len++;
+	}
+	return (len);
+}
 
 int		ft_handle_int(long long nb, char *flags)
 {
@@ -20,19 +35,10 @@ int		ft_handle_int(long long nb, char *flags)
 
 	len = 0;
 	n = nb;
-	// printf("\nflags: %s\n", flags);
-	if (n < 0)
-		n = -n;
-	while (n > 0)
-	{
-		n /= 10;
-		len++;
-	}
+	len += check_nb_len(nb);
 	if (nb <= 0 && !(get_precision(flags) == 0 && nb == 0))
 		len++;
-	// printf("\n|handle_int len: %d|\n", len);
 	decision = ft_handle_flags_int(flags, len, 0, nb);
-	// printf("\ndecision: %d\n", decision);
 	if (decision == -2 || decision == 0)
 		ft_putnbr(nb, get_precision(flags));
 	else if (decision == -1)
@@ -43,7 +49,6 @@ int		ft_handle_int(long long nb, char *flags)
 	}
 	else
 		len += decision;
-	// printf("\n|handle_int len: %d|\n", len);
 	return (len);
 }
 
@@ -65,9 +70,7 @@ int		ft_check_if_zeros(char *flags, int len, long long nb)
 	if (zeros)
 		return (0);
 	max = precision - len;
-	// printf("\nnb: %lld / precision: %d / width: %d / zeros: %d / len: %d\n", nb, precision, width, zeros, len);
 	while (size < max)
 		size++;
-	// printf(" size: %d\n", size);
 	return (size);
 }

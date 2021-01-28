@@ -6,18 +6,18 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:16:41 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/28 14:23:51 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/28 14:38:23 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-#include "./libft/libft.h"
-#include <stdarg.h>
-#include <stdbool.h>
-#include <stdio.h>
-#include <stdlib.h>
+# include "./libft/libft.h"
+# include <stdarg.h>
+# include <stdbool.h>
+# include <stdio.h>
+# include <stdlib.h>
 
 int		ft_handle_all(char *str, va_list params);
 int		ft_handle_str(char *str, char *flags);
@@ -52,9 +52,11 @@ int		ft_handle_percent(char *flags);
 int		print_spaces_percent(int width);
 int		print_zeros_percent(int width);
 int		ft_check_if_zeros(char *flags, int len, long long nb);
-int		ft_handle_flags_hexa_extension(char *flags, int *tab, int after, long long nb);
+int		ft_handle_flags_hexa_extension(char *flags, int *tab, int after,
+										long long nb);
 void	print_zeros_hexa_extension(long long nb, int precision, char op);
 int		ft_handle_hexa_extension(long long nb, char *flags, int len, int *tab);
 int		ft_printf_extension(int len, const char *str, va_list params);
+int		check_nb_len(long long nb);
 
 #endif
