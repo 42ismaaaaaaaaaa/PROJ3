@@ -6,7 +6,7 @@
 #    By: iouali <iouali@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/04 14:09:06 by iouali            #+#    #+#              #
-#    Updated: 2021/01/12 15:59:54 by iouali           ###   ########.fr        #
+#    Updated: 2021/01/28 15:39:49 by iouali           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ SRCS    =   ft_printf.c \
 			ft_printf_utils_v2.c \
 			ft_handle_flags_hexa.c \
 			ft_handle_pointers.c \
-			ft_handle_percent.c
+			ft_handle_percent.c \
+			ft_handle_flags_pointers.c
 
 OBJS    =    ${SRCS:.c=.o}
 

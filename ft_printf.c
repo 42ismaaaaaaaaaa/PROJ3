@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:03:12 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/28 14:24:38 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/28 15:40:42 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int		ft_handle_all(char *str, va_list params)
 	if (op == 'x' || op == 'X')
 		len += ft_handle_hexa(va_arg(params, unsigned int), flags, op);
 	if (op == 'p')
-		len += ft_handle_pointers(va_arg(params, void*), flags);
+		len += ft_handle_pointers(va_arg(params, unsigned long long), flags);
 	if (op == '%')
 		len += ft_handle_percent(flags);
 	free(flags);

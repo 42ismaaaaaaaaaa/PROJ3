@@ -6,7 +6,7 @@
 /*   By: iouali <iouali@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:16:41 by iouali            #+#    #+#             */
-/*   Updated: 2021/01/28 14:55:16 by iouali           ###   ########.fr       */
+/*   Updated: 2021/01/28 15:41:10 by iouali           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ int		ft_handle_flags_char(char *flags, int after);
 int		print_zeros_hexa(char *flags, int *tab, long long nb, int zeros);
 int		print_spaces_hexa(int width, int precision, int len, long long nb);
 int		ft_handle_flags_hexa(char *flags, int *tab, int after, long long nb);
-int		ft_handle_pointers(void *nb, char *flags);
-int		size_of_hex(long long nb);
+int		ft_handle_pointers(unsigned long long nb, char *flags);
+int		size_of_hex(unsigned long long nb);
 int		ft_handle_percent(char *flags);
 int		print_spaces_percent(int width);
 int		print_zeros_percent(int width);
@@ -60,5 +60,20 @@ int		ft_printf_extension(int len, const char *str, va_list params);
 int		check_nb_len(long long nb);
 int		ft_handle_flags_int_ext(char *flags, int len, int after, long long nb);
 void	print_zeros_int_ext(long long nb, int precision);
+int		ft_handle_pointers_extension(unsigned long long nb, char *flags,
+									int len, int *tab);
+int		ft_handle_pointers_bis(unsigned long long nb, char *flags,
+										char op);
+int		ft_handle_flags_pointers_extension(char *flags, int *tab, int after,
+								unsigned long long nb);
+int		ft_handle_flags_pointers(char *flags, int *tab, int after,
+									unsigned long long nb);
+int		print_spaces_pointers(int width, int precision, int len,
+								unsigned long long nb);
+int		print_zeros_pointers(char *flags, int *tab, unsigned long long nb,
+								int zeros);
+void	write_to_hexa_pointers(unsigned long long c, char op);
+void	print_zeros_pointers_extension(unsigned long long nb, int precision,
+										char op);
 
 #endif
